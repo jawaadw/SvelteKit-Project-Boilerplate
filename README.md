@@ -48,3 +48,5 @@ You can preview the production build with `npm run preview`.
 ```bash
 npx shadcn-svelte@latest init
 ```
+
+### Changing the \$lib directory
