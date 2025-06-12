@@ -1,10 +1,8 @@
 # SvelteKit Project Boilerplate
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
-
 ## Creating a project
 
-If you're seeing this, you've probably already done this step. Congrats!
+This boilerplate handles the project creation step. If you want to create a new project and not use this boilerplate, the commands to do so are as follows:
 
 ```bash
 # create a new project in the current directory
@@ -118,4 +116,18 @@ In the `app.css` file, the `@theme` block is used to customize `tailwind` proper
   font-display: swap;
   src: url("/fonts/Poppins.woff2") format("woff2");
 }
+```
+
+### Layout Choices
+
+This boilerplate predefines a basic header and footer, which is present on every page. The Header also comes predefined with some navigation links and some common pages. This header has been styles to collapse into a side sheet when the screen size in decreased. As with everything else, this is all customizable.
+
+### Icons from `lucide-svelte`
+
+The icon library of choice for this boilerplate is [`lucide-svelte`](https://lucide.dev/icons/)
+
+> `lucide-svelte` should install automatically when the initial `npm init` command is run, but if it doesn't:
+
+```bash
+npm install @lucide/svelte
 ```

@@ -1,62 +1,33 @@
 <script lang="ts">
-    import { Mail, } from "lucide-svelte";
-    import { superForm, type SuperValidated } from "sveltekit-superforms";
-    import { appointmentSchema, type EmailSchema } from "$lib/Schemas";
-    import { zodClient } from "sveltekit-superforms/adapters";
-    import FormInput from "../components/form/FormInput.svelte";
-    import FormButton from "$lib/components/ui/form/form-button.svelte";
-    import Button from "../components/Button.svelte";
-    import { enhance } from "$app/forms";
+  import Button from "$lib/components/ui/button/button.svelte";
+  import { Facebook, Linkedin } from "@lucide/svelte";
+  import NavItems from "../header/NavItems.svelte";
 
-    interface Props {
-      data: SuperValidated<EmailSchema>,
-    }
-
-    let {
-      data,
-    }: Props = $props();
-
-    const form = superForm(data, {
-      validators: zodClient(appointmentSchema),
-    })
-
-    let emailInputFocused: Boolean = $state(false);
-
-    function subscribe() {
-      // console.log(email);
-      // emailSchema.safeParse(email);
-      // addEmail(email);
-    }
+  const iconButtonClass =
+    "bg-white text-primary p-1 size-8 rounded-md border hover:bg-primary hover:text-white hover:border-white";
+  const iconClass = "size-6 fill-current";
 </script>
 
-<div class="footer w-full flex flex-col gap-lg items-center bg-darkgray p-lg text-sm">
-  <a style:height="100%" href="/">
-    <img class="w-[150px]"
-        src="./images/Logo-Color-Dark.png"
-        alt="Carolina Q&A Logo">
-  </a>
+<div
+  class="footer w-full flex flex-col gap-lg items-center bg-primary pb-4 text-sm"
+>
+  <div class="w-full flex justify-between items-center px-8">
+    <a href="/">
+      <img class="w-[150px]" src="./images/Logo-Text.png" alt="Logo" />
+    </a>
 
-  <div class="flex flex-col gap-lg w-[500px] max-sm:w-full justify-center items-center">
-    <form method="POST" action="/?/subscribe" use:enhance
-          class="w-full bg-gray rounded-3xl flex p-sm items-center">
-      <!-- svelte-ignore attribute_quoted -->
-      <Mail class="w-[28px] ml-sm {emailInputFocused ? "text-white" : "text-white/[0.6]"}"/>
-      <FormInput {form} field="email"
-                 placeholder="Your Email"
-                 onfocusin={() => {emailInputFocused = true}}
-                 onfocusout={() => {emailInputFocused = false}}
-                 class="bg-transparent border-none text-white placeholder:text-white/[0.6] rounded-2xl focus-visible:ring-0 focus-visible:ring-offset-0" />
-      <FormButton class="bg-darkblue rounded-full">Subscribe Now</FormButton>
-    </form>
+    <NavItems columnBreak={false}></NavItems>
 
-    <p class="text-lightgray text-center">
-      By subscribing up, you agree with the app sending marketing communications, as described in the <a href="#">Privacy</a> and <a href="#">Cookie policy</a>
-    </p>
+    <div class="flex gap-2">
+      <Button class={iconButtonClass}>
+        <Facebook class={iconClass} strokeWidth="0.5" />
+      </Button>
+      <Button class={iconButtonClass}>
+        <Linkedin class={iconClass} strokeWidth="0.5" />
+      </Button>
+    </div>
   </div>
 
-  <hr class="border-lightgray w-[90%]">
-
-  <p class="text-lightgray">
-    ©Copyright  Al-Aqsa Clinic
-  </p>
+  <p class="text-neutral">Hope Tech © 2025 <br /> All rights reserved.</p>
 </div>
+

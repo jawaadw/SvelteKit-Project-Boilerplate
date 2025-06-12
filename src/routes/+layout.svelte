@@ -6,24 +6,16 @@
 	let { children } = $props();
 </script>
 
-<div id="display-body">
-	<Header />
+<div class="w-screen h-screen flex justify-center">
+	<div class="flex flex-col bg-white w-[min(100%,_1400px)] h-full">
+		<div class="p-2">
+			<Header />
+		</div>
 
-	{@render children()}
+		<main class="grow px-2">
+			{@render children()}
+		</main>
 
-	<Footer data={{}} />
+		<Footer />
+	</div>
 </div>
-
-<style>
-	#display-body {
-		display: flex;
-		flex-direction: column;
-		background-color: white;
-		width: min(100%, 1400px);
-		height: 100vh;
-	}
-
-	#main-content {
-		flex-grow: 1;
-	}
-</style>
